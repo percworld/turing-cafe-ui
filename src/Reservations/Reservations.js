@@ -1,25 +1,19 @@
 
 import React from 'react';
 import './Reservations.css';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
+import Card from './../Card/Card'
 
-export default function Reservations({ reservations }) {
+export default function Reservations({ reservations, handleCancel }) {
     const currentReservations = reservations.map(reservation => {
         return (
-            <li>
-                <p>Date</p>
-                <p>Time</p>
-                <p>Table #</p>
-                <p>Sunny?</p>
-            </li>
+            <Card props={reservation} handleCancel={handleCancel} key={reservation.id} />
         )
     })
 
     return (
         <div className='resyContainer'>
-            <Link to='/Form' >Make a New Reservation</Link>
-            <p>Current Reservations</p>
-            <ul>
+            <ul className='resyList'>
                 {currentReservations}
             </ul>
         </div>

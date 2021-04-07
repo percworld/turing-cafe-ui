@@ -1,0 +1,13 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border: 2em seagreen;
+    border-radius: 1.5rem;
+    background-color: aliceblue;
+    color: seagreen;
+    height: 13em;
+    width: 13em;
+    margin-bottom: 1.5em;
+}
+
