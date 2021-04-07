@@ -4,7 +4,7 @@ import './index.css';
 import App from './App/App';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-const router = <BrowserRouter> <App /> </BrowserRouter>;
+const router = <Router> <App /> </Router>;
 
 
 ReactDOM.render(router, document.getElementById('root'));
