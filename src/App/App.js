@@ -21,9 +21,8 @@ class App extends Component {
 
   }
 
-
-  emptyField() {
-    this.setState({ request: '' })
+  addNewReservation = (newReservation) => {
+    this.setState({ currentReservations: [...this.state.currentReservations, newReservation] })
   }
 
   handleCancel() {
@@ -35,7 +34,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1 className='app-title'>Turing Cafe Reservations</h1>
-        <Route path="/Form" component={Form} />
+        <Route path="/Form" component={Form} addNewReservation={this.addNewReservation} />
         <Route exact path="/" render={() => (
           <div className='reservations'>
             <Link to='/Form' >Make a New Reservation</Link>

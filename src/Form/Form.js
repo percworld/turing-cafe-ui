@@ -3,20 +3,30 @@ import './Form.css';
 import { Link } from 'react-router-dom'
 
 class Form extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      name: ''
-      date: ''
-      time: ''
+      name: '',
+      date: '',
+      time: '',
       guests: ''
     }
   }
 
   addReservation = event => {
     event.preventDefault();
-    this.setState({ id: Date.now(), ...this.state });
+    const newRes = { id: Date.now(), ...this.state }
+    this.props.addNewReservation(newRes);
     this.emptyField();
+  }
+
+  emptyField() {
+    this.setState({
+      name: '',
+      date: '',
+      time: '',
+      guests: ''
+    })
   }
 
   handleChange = event => {
@@ -56,7 +66,7 @@ class Form extends React.Component {
             value={this.state.number}
             onChange={event => this.handleChange(event)}
           />
-          <button></button>
+          <button onClick={event => this.addReservation(event)}>Request Reservation</button>
 
         </form>
 
